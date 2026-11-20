@@ -1,0 +1,35 @@
+name: relist-nuget
+
+on:
+  workflow_dispatch:
+    inputs:
+      package_id:
+        description: NuGet package id
+        required: true
+        default: Tiisu.Mahjong.Markdown
+      version:
+        description: Package version
+        required: true
+        default: 1.0.2
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  relist:
+    runs-on: ubuntu-latest
+    steps:
+      - name: NuGet login (OIDC -> temporary API key)
+        id: login
+        uses: NuGet/login@v1
+        with:
+          user: ${{ vars.NUGET_USER }}
+
+      - name: Relist package
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail-with-body -X POST \
+            "https://www.nuget.org/api/v2/package/${{ inputs.package_id }}/${{ inputs.version }}" \
+            -H "X-NuGet-ApiKey: ${{ steps.login.outputs.NUGET_API_KEY }}"
