@@ -104,6 +104,21 @@ Canonical four-tile forms `a2222z` / `k3333p` are also accepted.
 
 Missing suit is rejected: `c123`, `k333` cannot be parsed without external context.
 
+## NuGet publishing
+
+This repository publishes through NuGet.org **trusted publishing** (OIDC), not a long-lived API key.
+
+- workflow: `.github/workflows/publish.yml`
+- NuGet.org trusted policy:
+  - repository owner: `Pub-Polaris`
+  - repository: `Tiisu-Mahjong-Markdown`
+  - workflow file: `publish.yml`
+  - environment: leave empty
+- GitHub repository secret: `NUGET_USER` = NuGet.org username (not email)
+- package version is defined in `src/Tiisu.Mahjong.Markdown/Tiisu.Mahjong.Markdown.csproj`
+
+The workflow runs on a published release or by manual `workflow_dispatch`.
+
 ## Attribution
 
 The renderer and notation rules are derived from the in-game Markdown renderer in
