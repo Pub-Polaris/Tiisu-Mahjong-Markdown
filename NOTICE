@@ -1,0 +1,14 @@
+Tiisu Mahjong Markdown
+======================
+
+Original author: 公民北极星_Official
+Repository: https://github.com/Pub-Polaris/Tiisu-Mahjong-Markdown
+
+This component is derived from the in-game Markdown/tile renderer in:
+https://github.com/Pub-Polaris/Tiisu-Mahjong-CSharp
+
+License: MIT. The copyright notice in LICENSE must be retained in
+redistributions and derivative works.
+
+No game fonts, tile atlases, audio, or other game assets are included.
+Hosts provide their own tile textures and fonts.
