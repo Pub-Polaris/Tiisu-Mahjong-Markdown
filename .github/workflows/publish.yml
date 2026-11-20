@@ -51,5 +51,6 @@ jobs:
             echo "Relisting ${id} ${version}"
             curl --fail-with-body -X POST \
               "https://www.nuget.org/api/v2/package/${id}/${version}" \
-              -H "X-NuGet-ApiKey: ${{ steps.login.outputs.NUGET_API_KEY }}"
+              -H "X-NuGet-ApiKey: ${{ steps.login.outputs.NUGET_API_KEY }}" \
+              -d ''
           done
