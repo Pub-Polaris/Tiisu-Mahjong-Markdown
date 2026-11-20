@@ -114,6 +114,9 @@ This repository publishes through NuGet.org **trusted publishing** (OIDC), not a
   - repository: `Tiisu-Mahjong-Markdown`
   - workflow file: `publish.yml`
   - environment: leave empty
+  - scope: **Push new packages and package versions**
+  - glob patterns and packages: `Tiisu.Mahjong.Markdown*`
+    (or exact package id `Tiisu.Mahjong.Markdown`)
 - GitHub repository secret: `NUGET_USER` = NuGet.org username (not email)
 - package version is defined in `src/Tiisu.Mahjong.Markdown/Tiisu.Mahjong.Markdown.csproj`
 
