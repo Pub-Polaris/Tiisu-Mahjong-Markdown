@@ -39,3 +39,17 @@ jobs:
           --api-key ${{ steps.login.outputs.NUGET_API_KEY }}
           --source https://api.nuget.org/v3/index.json
           --skip-duplicate
+
+      - name: Ensure pushed packages are listed
+        shell: bash
+        run: |
+          set -euo pipefail
+          for pkg in artifacts/*.nupkg; do
+            nuspec=$(unzip -Z1 "$pkg" | grep '\.nuspec$' | head -n1)
+            id=$(unzip -p "$pkg" "$nuspec" | sed -n 's:.*<id>\(.*\)</id>.*:\1:p' | head -n1)
+            version=$(unzip -p "$pkg" "$nuspec" | sed -n 's:.*<version>\(.*\)</version>.*:\1:p' | head -n1)
+            echo "Relisting ${id} ${version}"
+            curl --fail-with-body -X POST \
+              "https://www.nuget.org/api/v2/package/${id}/${version}" \
+              -H "X-NuGet-ApiKey: ${{ steps.login.outputs.NUGET_API_KEY }}"
+          done
