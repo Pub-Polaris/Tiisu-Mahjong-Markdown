@@ -115,6 +115,7 @@ This repository publishes through NuGet.org **trusted publishing** (OIDC), not a
   - workflow file: `publish.yml`
   - environment: leave empty
   - scope: **Push new packages and package versions**
+  - also enable: **Unlist or relist package versions**
   - glob patterns and packages: `Tiisu.Mahjong.Markdown*`
     (or exact package id `Tiisu.Mahjong.Markdown`)
 - GitHub repository variable: `NUGET_USER` = NuGet.org username (not email)
