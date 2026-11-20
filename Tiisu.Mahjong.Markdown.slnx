@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Tiisu.Mahjong.Markdown/Tiisu.Mahjong.Markdown.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Tiisu.Mahjong.Markdown.Tests/Tiisu.Mahjong.Markdown.Tests.csproj" />
+  </Folder>
+</Solution>
