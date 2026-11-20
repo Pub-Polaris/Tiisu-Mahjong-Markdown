@@ -228,13 +228,6 @@ public static class MarkdownDocument
         return result;
     }
 
-    private static string ParseRow(string line)
-    {
-        string trimmed = line.Trim().Trim('|');
-        var cells = trimmed.Split('|').Select(c => c.Trim());
-        return string.Join("    ", cells.Where(c => c.Length > 0));
-    }
-
     private static IReadOnlyList<string> ParseCells(string line)
     {
         string trimmed = line.Trim().Trim('|');

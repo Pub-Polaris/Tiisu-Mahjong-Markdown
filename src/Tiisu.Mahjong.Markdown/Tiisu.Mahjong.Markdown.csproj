@@ -6,7 +6,7 @@
     <ImplicitUsings>disable</ImplicitUsings>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageId>Tiisu.Mahjong.Markdown</PackageId>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <Authors>公民北极星_Official</Authors>
     <Description>Portable Markdown + mahjong tile notation renderer for Unity, Godot and other C# hosts.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
